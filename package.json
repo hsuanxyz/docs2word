@@ -1,0 +1,19 @@
+{
+  "name": "docs2word",
+  "version": "0.0.1",
+  "description": "docs to words",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./dist/main.js"
+  },
+  "author": "HsuanLee",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "^1.4.0",
+    "fs": "0.0.1-security",
+    "mz": "^2.6.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}

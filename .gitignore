@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+/.idea
+
+.idea/docs2word.iml
+.idea/markdown-navigator/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+
