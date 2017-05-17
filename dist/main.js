@@ -19,7 +19,9 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 (0, _readFile2.default)('./md', 'utf-8').then(function (res) {
     var words = [].concat(_toConsumableArray(new Set((0, _parseWord2.default)(res))));
+    console.log(words.length);
     words.forEach(function (e) {
+
         // getTranslation(e)
         //     .then( obj => {
         //         console.log(obj)

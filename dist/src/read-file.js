@@ -28,21 +28,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @param filePath {string}
  * @returns Promise<string>
  */
-
 /**
  * Created by hsuanlee on 16/05/2017.
  */
-var list = [];
-
 function readFile(filePath) {
     return _fs2.default.stat(filePath).then(function (stat) {
         // 判断是否为目录
         if (stat.isDirectory()) {
-            walk(filePath).then(function (e) {
-                console.log(e.filter(function (e) {
+            // 如果是目录，返回所有制定文件内容
+            return walk(filePath).then(function (e) {
+                var fileList = e.filter(function (e) {
                     return (/\.md/.test(e)
                     );
-                }));
+                });
+                return readFileList(fileList);
             });
         } else {
             // 如果是文件直接返回文件内容
@@ -51,6 +50,28 @@ function readFile(filePath) {
     });
 }
 
+/**
+ * 获取文件列表内所有文件内容
+ * @param list
+ * @returns {Promise|Promise<string>}
+ */
+function readFileList(list) {
+    var content = '';
+    return _when2.default.map(list, function (file) {
+        return _fs2.default.readFile(file, 'utf-8').then(function (c) {
+            content += c;
+        });
+    }).then(function () {
+        return content;
+    });
+}
+
+/**
+ * 递归查找目录文件
+ * @param directory
+ * @param includeDir
+ * @returns {Promise|Promise<Array<string> >}
+ */
 function walk(directory, includeDir) {
     var results = [];
     return _when2.default.map(_function2.default.call(_fs2.default.readdir, directory), function (file) {

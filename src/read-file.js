@@ -11,17 +11,16 @@ import nodefn from 'when/node/function'
  * @param filePath {string}
  * @returns Promise<string>
  */
-
-let list = [];
-
 export default function readFile(filePath) {
     return fs.stat(filePath)
         .then(stat => {
             // 判断是否为目录
             if(stat.isDirectory()){
-                walk(filePath)
+                // 如果是目录，返回所有制定文件内容
+              return walk(filePath)
                     .then(e => {
-                        console.log(e.filter( e => /\.md/.test(e)))
+                        let fileList =e.filter( e => /\.md/.test(e));
+                       return readFileList(fileList)
                     })
 
             }else {
@@ -31,6 +30,27 @@ export default function readFile(filePath) {
         });
 }
 
+/**
+ * 获取文件列表内所有文件内容
+ * @param list
+ * @returns {Promise|Promise<string>}
+ */
+function readFileList(list) {
+    let content = '';
+    return when.map(list, file => {
+        return fs.readFile(file,'utf-8')
+            .then( c => {
+                content += c;
+            })
+    }).then(() => content)
+}
+
+/**
+ * 递归查找目录文件
+ * @param directory
+ * @param includeDir
+ * @returns {Promise|Promise<Array<string> >}
+ */
 function walk (directory, includeDir) {
     let results = [];
     return when.map(nodefn.call(fs.readdir, directory), function(file) {
@@ -46,3 +66,4 @@ function walk (directory, includeDir) {
         return results
     });
 }
+
