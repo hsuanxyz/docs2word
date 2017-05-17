@@ -5,13 +5,14 @@ import readFile from './src/read-file'
 import parseWord from './src/parse-word'
 import { getTranslation } from './src/translation'
 
-readFile('./md/ng.md', 'utf-8')
+readFile('./md', 'utf-8')
     .then(res => {
         let words =[...new Set(parseWord(res))];
         words.forEach( (e) => {
-            getTranslation(e)
-                .then( obj => {
-                    console.log(obj)
-                })
+            // getTranslation(e)
+            //     .then( obj => {
+            //         console.log(obj)
+            //     })
         })
     });
+
