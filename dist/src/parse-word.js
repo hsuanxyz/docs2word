@@ -27,7 +27,13 @@ function parseWord(docs) {
     });
 }
 
+/**
+ * 统计词频，按词频排序
+ * @param wordArr
+ * @returns {Array.<*>}
+ */
 function wordFrequency(wordArr) {
+    wordArr = wordArr.sort();
     var only = [].concat(_toConsumableArray(new Set(wordArr)));
     var result = [];
 
@@ -38,9 +44,11 @@ function wordFrequency(wordArr) {
         for (var y = 0; y < wordArr.length; y++) {
             if (wordItem.name === wordArr[y]) {
                 wordItem.value++;
+            } else {
+                wordArr.splice(0, y + 1);
+                break;
             }
         }
-
         result.push(wordItem);
     }
 

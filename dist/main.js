@@ -12,12 +12,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 (0, _readFile2.default)('./md', 'utf-8').then(function (res) {
 
+    console.time('parse');
+    // let words = parseWord(res);
     var words = (0, _parseWord.wordFrequency)((0, _parseWord.parseWord)(res));
-
+    console.timeEnd('parse');
     console.log(words.length);
-    // for(let i = 0; i < 50; i++){
-    //     console.log(words[i])
-    // }
+    for (var i = 0; i < 50; i++) {
+        console.log(words[i]);
+    }
     // words.forEach( (e) => {
     //     console.log(e)
     //     getTranslation(e)

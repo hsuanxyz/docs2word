@@ -9,12 +9,14 @@ readFile('./md', 'utf-8')
     .then(res => {
 
 
+        console.time('parse');
+        // let words = parseWord(res);
         let words = wordFrequency(parseWord(res));
-
-        console.log(words.length)
-        // for(let i = 0; i < 50; i++){
-        //     console.log(words[i])
-        // }
+        console.timeEnd('parse');
+        console.log(words.length);
+        for(let i = 0; i < 50; i++){
+            console.log(words[i])
+        }
         // words.forEach( (e) => {
         //     console.log(e)
         //     getTranslation(e)

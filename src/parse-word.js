@@ -17,7 +17,13 @@ export function parseWord(docs){
     })
 }
 
+/**
+ * 统计词频，按词频排序
+ * @param wordArr
+ * @returns {Array.<*>}
+ */
 export function wordFrequency(wordArr){
+    wordArr = wordArr.sort();
     let only = [...new Set(wordArr)];
     let result = [];
 
@@ -28,9 +34,11 @@ export function wordFrequency(wordArr){
         for(let y = 0; y <  wordArr.length; y++){
             if(wordItem.name === wordArr[y]){
                 wordItem.value++
+            }else {
+                wordArr.splice(0,y+1);
+                break;
             }
         }
-
         result.push(wordItem);
     }
 
