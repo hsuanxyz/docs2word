@@ -44,7 +44,9 @@ function wordFrequency(wordArr) {
         result.push(wordItem);
     }
 
-    return result;
+    return result.sort(function (a, b) {
+        return b.value - a.value;
+    });
 }
 
 /**

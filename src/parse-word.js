@@ -34,7 +34,7 @@ export function wordFrequency(wordArr){
         result.push(wordItem);
     }
 
-    return result;
+    return result.sort( (a,b) =>  b.value - a.value)
 }
 
 /**

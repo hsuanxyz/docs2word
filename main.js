@@ -5,18 +5,22 @@ import readFile from './src/read-file'
 import {parseWord, wordFrequency} from './src/parse-word'
 import { getTranslation } from './src/translation'
 
-readFile('./md/ng.md', 'utf-8')
+readFile('./md', 'utf-8')
     .then(res => {
 
 
         let words = wordFrequency(parseWord(res));
-        console.log(words.length);
-        words.forEach( (e) => {
-            console.log(e)
+
+        console.log(words.length)
+        // for(let i = 0; i < 50; i++){
+        //     console.log(words[i])
+        // }
+        // words.forEach( (e) => {
+        //     console.log(e)
         //     getTranslation(e)
         //         .then( obj => {
         //             console.log(obj)
         //         })
-        })
+        // })
     });
 
