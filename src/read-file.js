@@ -6,6 +6,8 @@ import path from 'path'
 import when from 'when'
 import nodefn from 'when/node/function'
 
+const fileType = /\.md/;
+
 /**
  * 读取文件内容
  * @param filePath {string}
@@ -19,7 +21,7 @@ export default function readFile(filePath) {
                 // 如果是目录，返回所有制定文件内容
               return walk(filePath)
                     .then(e => {
-                        let fileList =e.filter( e => /\.md/.test(e));
+                        let fileList =e.filter( e => fileType.test(e));
                        return readFileList(fileList)
                     })
 

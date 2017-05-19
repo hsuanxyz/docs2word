@@ -24,12 +24,14 @@ var _function2 = _interopRequireDefault(_function);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
+ * Created by hsuanlee on 16/05/2017.
+ */
+var fileType = /\.md/;
+
+/**
  * 读取文件内容
  * @param filePath {string}
  * @returns Promise<string>
- */
-/**
- * Created by hsuanlee on 16/05/2017.
  */
 function readFile(filePath) {
     return _fs2.default.stat(filePath).then(function (stat) {
@@ -38,8 +40,7 @@ function readFile(filePath) {
             // 如果是目录，返回所有制定文件内容
             return walk(filePath).then(function (e) {
                 var fileList = e.filter(function (e) {
-                    return (/\.md/.test(e)
-                    );
+                    return fileType.test(e);
                 });
                 return readFileList(fileList);
             });

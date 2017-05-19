@@ -7,7 +7,7 @@
  * @param docs {string}
  * @returns {Array<string>}
  */
-export default function parseWord(docs){
+export function parseWord(docs){
     if(!docs) return [];
 
     docs = cleanStr(docs); // 清除无效字符串
@@ -15,6 +15,26 @@ export default function parseWord(docs){
     return docs.split(' ').filter( function(e) {
         return e !== '' && e.length > 1;
     })
+}
+
+export function wordFrequency(wordArr){
+    let only = [...new Set(wordArr)];
+    let result = [];
+
+    for(let i = 0; i < only.length; i++){
+
+        let wordItem = {name:only[i], value:0};
+
+        for(let y = 0; y <  wordArr.length; y++){
+            if(wordItem.name === wordArr[y]){
+                wordItem.value++
+            }
+        }
+
+        result.push(wordItem);
+    }
+
+    return result;
 }
 
 /**
