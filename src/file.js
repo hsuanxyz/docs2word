@@ -13,7 +13,7 @@ const fileType = /\.md/;
  * @param filePath {string}
  * @returns Promise<string>
  */
-export default function readFile(filePath) {
+export function readFile(filePath) {
     return fs.stat(filePath)
         .then(stat => {
             // 判断是否为目录
@@ -30,6 +30,14 @@ export default function readFile(filePath) {
                 return fs.readFile(filePath,'utf-8')
             }
         });
+}
+
+export function writeTemp(json) {
+    return fs.writeFile('./.temp_output.json',JSON.stringify(json));
+}
+
+export function writeResult(json) {
+    return fs.writeFile('./result.json',JSON.stringify(json));
 }
 
 /**

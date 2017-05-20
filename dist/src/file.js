@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.readFile = readFile;
 exports.writeTemp = writeTemp;
+exports.writeResult = writeResult;
 
 var _fs = require('mz/fs');
 
@@ -54,6 +55,10 @@ function readFile(filePath) {
 
 function writeTemp(json) {
     return _fs2.default.writeFile('./.temp_output.json', JSON.stringify(json));
+}
+
+function writeResult(json) {
+    return _fs2.default.writeFile('./result.json', JSON.stringify(json));
 }
 
 /**
