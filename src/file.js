@@ -32,8 +32,8 @@ export function readFile(filePath) {
         });
 }
 
-export function writeTemp(json) {
-    return fs.writeFile('./.temp_output.json',JSON.stringify(json));
+export function writeTemp(json, path) {
+    return fs.writeFile(`${path}/temp_output.json`,JSON.stringify(json));
 }
 
 export function writeResult(json) {

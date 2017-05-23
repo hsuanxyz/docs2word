@@ -53,8 +53,8 @@ function readFile(filePath) {
     });
 }
 
-function writeTemp(json) {
-    return _fs2.default.writeFile('./.temp_output.json', JSON.stringify(json));
+function writeTemp(json, path) {
+    return _fs2.default.writeFile(path + '/temp_output.json', JSON.stringify(json));
 }
 
 function writeResult(json) {

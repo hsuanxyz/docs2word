@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = main;
+
 var _commander = require('commander');
 
 var _commander2 = _interopRequireDefault(_commander);
@@ -19,12 +24,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _commander2.default.version('0.0.1');
 // .option('-l, --list [list]', 'list')
 // .parse(process.argv)
-
 /**
  * Created by hsuanlee on 16/05/2017.
  */
-if (process.argv[2]) {
+main();
+
+function main() {
+
     var file = process.argv[2];
+
+    var outputPath = process.argv[3];
+
+    if (!file) {
+        console.log('请指定背翻译路径');
+        return;
+    }
+
+    if (!outputPath) {
+        return console.log('请指定输出路径');
+    }
 
     (0, _file.readFile)(file, 'utf-8').then(function (res) {
 
@@ -32,7 +50,7 @@ if (process.argv[2]) {
         var words = (0, _parseWord.wordFrequency)((0, _parseWord.parseWord)(res));
 
         // 创建缓存文件
-        return (0, _file.writeTemp)(words).then(function () {
+        return (0, _file.writeTemp)(words, outputPath).then(function () {
             return Promise.resolve(words);
         });
     }).then(function (res) {
