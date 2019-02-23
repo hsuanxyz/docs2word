@@ -19,6 +19,7 @@
     "path": "^0.12.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
+    "spellchecker": "^3.5.1",
     "when": "^3.7.8"
   }
 }

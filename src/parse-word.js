@@ -7,7 +7,8 @@ const exclude = 'the,to,is,and,of,in,for,var,be,you,on,are,can,an,as,or,we,td,if
     'left,issue,all,event,tag,length,tabs,used,const,config,expanded,box,info,has,sub,let,code,icons,yarn' +
     'array,subtitle,url,end,start,body,html,npm,node,link,webpack,lib,src,but,next,ref,project,test,' +
     'min,max,dot,now,bug,clicked,zhejiang,type,types,dev,hangzhou,err,error,svg,diff,map,error,errors,' +
-    'save,run,javascript,typescript,iconfont,root,num,value,file,size,git,window,github'.split(',');
+    'save,run,javascript,typescript,iconfont,root,num,value,file,size,git,window,github,firefox,andro,mozilla,disabl,licens,' +
+    'samsung,enabl,undefin,ctx,defin,creat,remov,autocapitalize'.split(',');
 
 /**
  * 清除无效字符串
@@ -62,6 +63,6 @@ module.exports = {
         }
     
         // 返回按词频排序的结果
-        return result.sort((a, b) => b.value - a.value).filter(e => (e.value > 3 && SpellChecker.isMisspelled(e.name)))
+        return result.sort((a, b) => b.value - a.value).filter(e => (e.value > 5 && !SpellChecker.isMisspelled(e.name)))
     }
 };
