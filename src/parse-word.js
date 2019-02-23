@@ -1,5 +1,11 @@
-const exclude = [ 'the', 'to', 'is', 'and', 'of', 'in', 'for', 'var', 'be', 'you', 'on', 'are', 'can', 'an', 'as', 'or', 'we', 'td',
-    'if', 'tr', 'by', 'vue', 'react', 'angular', 'it', 'js', 'css', 'html', 'id' ];
+const exclude = 'the,to,is,and,of,in,for,var,be,you,on,are,can,an,as,or,we,td,if,tr,by,vue,react,angular,it,js,css,html,' +
+    'id,value,title,node,this,const,string,antd,data,change,type,function,set,get,key,false,jsx,button,input,icon,name,select' +
+    'item,style,ant,number,fix,date,return,get,class,index,true,list,table,keys,components,text,use,not,fixed,color,show,' +
+    'time,top,click,tab,options,loading,object,demo,new,add,app,open,page,auto,user,moment,script,' +
+    'left,issue,all,event,tag,length,tabs,used,const,config,expanded,box,info,has,sub,let,code,icons,yarn' +
+    'array,subtitle,url,end,start,body,html,npm,node,link,webpack,lib,src,but,next,ref,project,test,' +
+    'min,max,dot,now,bug,clicked,zhejiang,type,types,dev,hangzhou,err,error,svg,diff,map,error,errors,' +
+    'save,run,javascript,typescript,iconfont,root,num,value,file,size,'.split(',');
 
 /**
  * 清除无效字符串
@@ -13,34 +19,9 @@ function cleanStr(text) {
     text = text.replace(/[0-9]/g, ''); // 数字
     text = text.replace(/(_|\-)/g, ' '); // 减号和下划线分词
     text = text.replace(/(<.*>)/g, ' '); // html标签
-    let wordArr = text.match(/(\w+)/g);
-    wordArr = formatHump(wordArr);
-    return wordArr;
+    text = text.replace(/([A-Z][a-z]*)/g, a => ` ${a.toLowerCase()}`); // 拆分驼峰命名
+    return text.match(/(\w+)/g);
 }
-
-/**
- * 格式化驼峰命名
- * @param wordArr {Array<string>}
- * @returns {Array<string>}
- */
-function formatHump(wordArr) {
-    let len = wordArr.length;
-    
-    // TODO 这块耗时与收益不合理
-    for (let i = 0; i < len; i++) {
-        let word = wordArr[ i ].replace(/([A-Z][a-z]*)/g, a => ` ${a.toLowerCase()}`);
-        let words = word.split(' ');
-        if (words.length > 1) {
-            len = len - words.length + 1;
-            wordArr.splice(i, words.length);
-            wordArr.push(...words);
-            i--
-        }
-    }
-    
-    return wordArr;
-}
-
 
 module.exports = {
     /**
