@@ -1,11 +1,8 @@
-/**
- * Created by hsuanlee on 16/05/2017.
- */
-import commander from 'commander'
-import {readFile, writeTemp, writeResult} from './src/file'
-import {parseWord, wordFrequency} from './src/parse-word'
-import { getTranslation } from './src/translation'
-import when from 'when'
+const commander = require('commander');
+const {readFile, writeTemp, writeResult} = require('./src/file');
+const {parseWord, wordFrequency} = require('./src/parse-word');
+const { getTranslation } = require('./src/translation');
+const when = require('when');
 
 commander
     .version('0.0.1')
@@ -13,7 +10,7 @@ commander
 // .parse(process.argv)
 main();
 
-export default function main() {
+function main() {
 
     let file = process.argv[2];
 
