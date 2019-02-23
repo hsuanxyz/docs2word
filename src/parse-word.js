@@ -20,6 +20,7 @@ function cleanStr(text) {
     text = text.replace(/(_|\-)/g, ' '); // 减号和下划线分词
     text = text.replace(/(<.*>)/g, ' '); // html标签
     text = text.replace(/([A-Z][a-z]*)/g, a => ` ${a.toLowerCase()}`); // 拆分驼峰命名
+    text = text.replace(/(?<![aei])([ie][d])(?=[^a-zA-Z])|(?<=[ertkgwmnl])s(?=[^a-zA-Z])/g, a => ''); // 移除复数
     return text.match(/(\w+)/g);
 }
 
