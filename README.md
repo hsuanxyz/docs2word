@@ -1,18 +1,23 @@
-# docs2word
-📖 将文档导安词频出为单词，然后背背背 😂 .
+# docs2word(自用型)
 
->正在施工
+📖 将文档导按词频提取出单词，然后背背背 😂 
 
-## TODO
+数据来源(2017-5) 主流前端库文档、MDN 文档、Stackoverflow 3000 问、Github TOP 100 > Issues TOP 100。
 
-1. 递归读取可识别文件
-2. 统计词频／排序
-3. 添加过滤表
-4. 生成md格式单词本／导出json
-5. 可配置导出位置及格式
-6. 创建web页面
-7. 为页面添加发音功能
-8. 添加本地打tag功能
-9. 添加本地书签功能
+## 怎么用？
 
-😪😪😪
+使用纸笔：在线的单词表 [words.hsuan.xyz](https://words.hsuan.xyz)
+
+<p align="center">
+    <img alt="web site screenshot" src="./screenshot/web.png" width="800">
+</p>
+
+
+或者使用 [Anki](https://apps.ankiweb.net/)：在 [release](https://github.com/hsuanxyz/docs2word/releases) 中下载 apkg 文件（包含带发音文件的包）并导入。
+
+<p align="center">
+    <img alt="anki app screenshot" src="./screenshot/phone-front.png" width="320">
+    <img alt="anki app screenshot" src="./screenshot/back.png"  width="800">
+</p>
+
+

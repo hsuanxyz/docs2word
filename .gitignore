@@ -66,3 +66,4 @@ typings/
 .idea/workspace.xml
 
 /md
+.DS_Store
