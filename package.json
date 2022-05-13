@@ -19,6 +19,7 @@
     "fs-extra": "^10.0.1",
     "mz": "^2.6.0",
     "path": "^0.12.7",
+    "puppeteer": "^13.7.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "spellchecker": "^3.5.1",
