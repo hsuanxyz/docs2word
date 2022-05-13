@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "anki-apkg": "file:../anki-apkg/anki-apkg-0.0.4.tgz",
-    "async": "^2.4.0",
+    "async": "^2.6.4",
     "babel-preset-env": "^1.4.0",
     "better-sqlite3": "^5",
     "commander": "^2.9.0",
